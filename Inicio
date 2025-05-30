@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRYTICLOUD Tienda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loader video {
+      width: 80%;
+      max-width: 600px;
+    }
+    .hidden {
+      display: none;
+    }
+    header {
+      background: linear-gradient(to right, #ff00cc, #3333ff);
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: 1px 1px #000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem;
+    }
+    nav button {
+      background: #222;
+      color: white;
+      border: 2px solid #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: #ff00cc;
+      color: black;
+    }
+    section {
+      margin: 2rem;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .producto {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ff00cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <video autoplay muted onended="hideLoader()">
+      <source src="TU_VIDEO.mp4" type="video/mp4">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+  </div>  <header>CRYTICLOUD STORE</header>
+  <nav>
+    <button onclick="mostrarSeccion('quienes')">¿Quiénes Somos?</button>
+    <button onclick="mostrarSeccion('productos')">Productos</button>
+    <button onclick="mostrarSeccion('contacto')">Contacto</button>
+  </nav>  <section id="quienes">
+    <h
