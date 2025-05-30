@@ -88,4 +88,54 @@
     <button onclick="mostrarSeccion('productos')">Productos</button>
     <button onclick="mostrarSeccion('contacto')">Contacto</button>
   </nav>  <section id="quienes">
-    <h
+    <h2>¿Quiénes Somos?</h2>
+    <p>[Aquí puedes editar tu historia, misión, visión, equipo, etc.]</p>
+  </section>  <section id="productos">
+    <h2>Productos</h2>
+    <nav>
+      <button onclick="mostrarCategoria('vapes')">Vapes</button>
+      <button onclick="mostrarCategoria('ropa')">Ropa</button>
+      <button onclick="mostrarCategoria('accesorios')">Accesorios</button>
+      <button onclick="mostrarCategoria('cosmeticos')">Cosméticos</button>
+      <button onclick="mostrarCategoria('gorras')">Gorras</button>
+      <button onclick="mostrarCategoria('bisuteria')">Bisutería</button>
+    </nav>
+    <div id="categoria-productos" class="productos-grid">
+      <!-- Aquí aparecerán los productos de la categoría seleccionada -->
+    </div>
+  </section>  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>[Sección editable para WhatsApp, correo, redes sociales, etc.]</p>
+  </section>  <script>
+    function hideLoader() {
+      document.getElementById('loader').classList.add('hidden');
+    }
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function mostrarCategoria(categoria) {
+      const contenedor = document.getElementById('categoria-productos');
+      contenedor.innerHTML = '';
+      // Aquí podrías conectar con Shopify mediante Liquid o JS para cargar productos dinámicos
+      const productos = [
+        { nombre: categoria + ' 1', precio: '$100', descuento: '2 pz $90', descripcion: 'Editable' },
+        { nombre: categoria + ' 2', precio: '$120', descuento: '2 pz $110', descripcion: 'Editable' },
+      ];
+
+      productos.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'producto';
+        div.innerHTML = `
+          <h3>${p.nombre}</h3>
+          <p>${p.descripcion}</p>
+          <p>Precio: ${p.precio}</p>
+          <p>${p.descuento}</p>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+  </script></body>
+</html>
